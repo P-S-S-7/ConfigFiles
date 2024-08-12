@@ -22,7 +22,7 @@ config.window_padding = {
 }
 
 -- tmux
-config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 5000 }
+config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 10000 }
 config.keys = {
     {
         mods = "LEADER",
@@ -142,8 +142,9 @@ end)
 -- Ensure WezTerm starts in fullscreen mode
 wezterm.on("gui-startup", function(cmd)
     local _, _, window = wezterm.mux.spawn_window(cmd or {})
-    window:gui_window():toggle_fullscreen()
+    window:gui_window():maximize()
 end)
+
 
 -- and finally, return the configuration to wezterm
 return config
